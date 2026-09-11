@@ -1,0 +1,41 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain ZFI_TP_DOC",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_ZFITPDOC_O4",
+    "serviceName": "ZUI_ZFITPDOC_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "ZfiTpDocAll",
+    "name": "ZFI_TP_DOC",
+    "transportObject": "ZZFITPDOC T",
+    "configurationGroup": "",
+    "skipRootEntity": "skip"
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "ZfiTpDocAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "ZfiTpDoc",
+        "tableType": "gridTable",
+        "selectionMode": "single",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

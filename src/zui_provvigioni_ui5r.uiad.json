@@ -1,0 +1,34 @@
+{
+  "formatVersion": "2",
+  "header": {
+    "description": "Provvigioni",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "appType": "ui5",
+    "catalogId": "SAP_TC_UI5_REPO_UIAD",
+    "targetMappingTitle": "Provvigioni"
+  },
+  "ui5AppDetails": {
+    "appId": "zui_provvigioni"
+  },
+  "navigation": {
+    "targetMappingId": "UI5R_1F18F768B045889C08D106C6D489B541359FE220_TM",
+    "semanticObject": "ZUI_PROVVIGIONI",
+    "action": "Display",
+    "desktop": true,
+    "tablet": true,
+    "phone": true
+  },
+  "tiles": [
+    {
+      "id": "UI5R_1F18F768B045889C08D106C6D489B541359FE220_AL",
+      "tileType": "static",
+      "isDefault": true,
+      "standard": {
+        "title": "Provvigioni"
+      }
+    }
+  ]
+}

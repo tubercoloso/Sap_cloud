@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZfiTpDoc',
+    typeNamePlural: 'ZfiTpDocs',
+    title: {
+      type: #STANDARD,
+      label: 'ZFI_TP_DOC',
+      value: 'Bukrs'
+    }
+  }
+}
+annotate view ZI_ZfiTpDoc with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Copy',
+    label: 'Copy Selected Entry',
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ZfiTpDoc',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'ZFI_TP_DOC',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [ {
+    entity: {
+      name: 'I_CompanyCodeVH',
+      element: 'CompanyCode'
+    }
+  } ]
+  Bukrs;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [ {
+      entity: {
+        name: 'I_AccountingDocumentTypeText',
+        element: 'AccountingDocumentType'   // oppure 'AccountingDocumentType'
+      },
+      additionalBinding: [ {
+      localConstant: 'I',
+      element: 'Language',
+      usage: #FILTER
+    } ]
+    } ]
+  Blart;
+}

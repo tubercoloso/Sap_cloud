@@ -1,0 +1,31 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Provvigioni catalog entry 3",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "className": "ZFI_PROVV_SYNC_DOCUMENTS_2"
+  },
+  "parameters": [
+    {
+      "name": "S_BUKRS",
+      "title": "Società",
+      "valueHelp": "I_COMPANYCODEVH",
+      "valueHelpType": "cdsView"
+    },
+    {
+      "name": "S_DOC",
+      "title": "Documento"
+    },
+    {
+      "name": "S_GHJAR",
+      "title": "Anno"
+    },
+    {
+      "name": "S_DATUM",
+      "title": "Data creazione"
+    }
+  ]
+}

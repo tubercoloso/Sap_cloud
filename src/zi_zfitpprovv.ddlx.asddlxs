@@ -1,0 +1,58 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZfiTpProvv', 
+    typeNamePlural: 'ZfiTpProvvs', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZFI_TP_PROVV', 
+      value: 'IconId'
+    }
+  }
+}
+annotate view ZI_ZfiTpProvv with
+{
+  @UI.identification: [ {
+    position: 1 
+  } ]
+  @UI.lineItem: [ {
+    position: 1 
+  }, 
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Copy', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ZfiTpProvv', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ZFI_TP_PROVV', 
+    position: 1 
+  } ]
+  
+  @EndUserText.label: 'ID'
+  IconId;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'IconUri'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'IconUri'
+  } ]
+  @EndUserText.label: 'Icon Url'
+  IconUri;
+  
+  @UI.identification: [ {
+    position: 3 , 
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 3 , 
+    label: 'Description'
+  } ]
+  Description;
+}

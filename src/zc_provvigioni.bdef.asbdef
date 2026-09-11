@@ -1,0 +1,19 @@
+projection implementation in class zbp_c_provvigioni unique;
+strict ( 2 );
+use draft;
+use side effects;
+define behavior for ZC_PROVVIGIONI alias ZfiProvvigioni
+{
+  use create;
+  use update;
+ // use delete;
+
+  use action Activate;
+  use action Discard;
+  use action Edit;
+  use action Resume;
+  use action Prepare;
+  use function GetDefaultsForCreate;
+
+
+}

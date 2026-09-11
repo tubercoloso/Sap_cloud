@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<abapGit version="v1.0.0" serializer="LCL_OBJECT_MSAG" serializer_version="v1.0.0">
+ <asx:abap xmlns:asx="http://www.sap.com/abapxml" version="1.0">
+  <asx:values>
+   <T100A>
+    <ARBGB>ZFI_MSG_PROVVIGIONI</ARBGB>
+    <MASTERLANG>E</MASTERLANG>
+    <STEXT>Message Provvigioni</STEXT>
+   </T100A>
+   <T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZFI_MSG_PROVVIGIONI</ARBGB>
+     <MSGNR>001</MSGNR>
+     <TEXT>Type A not allowed</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZFI_MSG_PROVVIGIONI</ARBGB>
+     <MSGNR>002</MSGNR>
+     <TEXT>Document &amp; does not exits</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZFI_MSG_PROVVIGIONI</ARBGB>
+     <MSGNR>003</MSGNR>
+     <TEXT>Field &amp; mandatory</TEXT>
+    </T100>
+    <T100>
+     <SPRSL>E</SPRSL>
+     <ARBGB>ZFI_MSG_PROVVIGIONI</ARBGB>
+     <MSGNR>004</MSGNR>
+     <TEXT>Value &amp;1 does not exists for field &amp;2</TEXT>
+    </T100>
+   </T100>
+  </asx:values>
+ </asx:abap>
+</abapGit>

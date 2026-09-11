@@ -1,0 +1,31 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Provvigioni job template",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "generalInformation": {
+    "catalogName": "ZFI_PROVV_JOB_CAT_ENTRY_3"
+  },
+  "parameters": {
+    "valueRangesParameters": [
+      {
+        "name": "S_BUKRS",
+        "valueRanges": []
+      },
+      {
+        "name": "S_DATUM",
+        "valueRanges": []
+      },
+      {
+        "name": "S_DOC",
+        "valueRanges": []
+      },
+      {
+        "name": "S_GHJAR",
+        "valueRanges": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ZfiStato_S'
+define service ZUI_ZFISTATO {
+  expose ZI_ZFISTATO_S as ZfiStatoAll;
+  expose ZI_ZFISTATO as ZfiStato;
+}

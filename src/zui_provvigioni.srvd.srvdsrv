@@ -1,0 +1,4 @@
+@EndUserText.label: 'Provvigioni Analytics Service'
+define service ZUI_PROVVIGIONI {
+  expose ZC_PROVVIGIONI as Provvigioni;
+}

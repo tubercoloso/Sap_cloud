@@ -1,0 +1,48 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZfiStato', 
+    typeNamePlural: 'ZfiStatos', 
+    title: {
+      type: #STANDARD, 
+      label: 'ZFI_STATO', 
+      value: 'Code'
+    }
+  }
+}
+annotate view ZI_ZfiStato with
+{
+  @UI.identification: [ {
+    position: 1 , 
+    label: 'Code'
+  } ]
+  @UI.lineItem: [ {
+    position: 1 , 
+    label: 'Code'
+  }, 
+  
+  {
+    type: #FOR_ACTION, 
+    dataAction: 'Copy', 
+    label: 'Copy Selected Entry', 
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ZfiStato', 
+    purpose: #STANDARD, 
+    type: #IDENTIFICATION_REFERENCE, 
+    label: 'ZFI_STATO', 
+    position: 1 
+  } ]
+  Code;
+  
+  @UI.identification: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  @UI.lineItem: [ {
+    position: 2 , 
+    label: 'Description'
+  } ]
+  Description;
+}

@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ZfiTpProvv_S'
+define service ZUI_ZFITPPROVV {
+  expose ZI_ZFITPPROVV_S as ZfiTpProvvAll;
+  expose ZI_ZFITPPROVV as ZfiTpProvv;
+}

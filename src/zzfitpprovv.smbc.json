@@ -1,0 +1,41 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain ZFI_TP_PROVV",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_ZFITPPROVV_O4",
+    "serviceName": "ZUI_ZFITPPROVV_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "ZfiTpProvvAll",
+    "name": "ZFI_TP_PROVV",
+    "transportObject": "ZZFITPPROVVT",
+    "configurationGroup": "",
+    "skipRootEntity": "skip"
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "ZfiTpProvvAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "ZfiTpProvv",
+        "tableType": "gridTable",
+        "selectionMode": "single",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 1,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,133 @@
+managed implementation in class zbp_i_provvigioni unique;
+strict ( 2 );
+with draft;
+extensible;
+define behavior for ZI_PROVVIGIONI alias ZfiProvvigioni
+persistent table zfi_provvigioni
+extensible
+draft table zdprovvigioni
+etag master LocalLastChangedAt
+lock master total etag LastChangedAt
+authorization master ( global )
+{
+  create ( authorization : global ) { default function GetDefaultsForCreate; }
+  update;
+  internal delete;
+
+  validation validate on save { create; update; }
+
+  validation existance_doc on save { field DocumentMaturanda,
+                                           DocumentMaturata,
+                                           DocumentFdr,
+                                           DocumentFatturaAgente,
+                                           AccountingDocument;  }
+
+  determination image_icon on modify { create; }
+
+  field ( readonly )
+  Id,
+  CompanyCodeName,
+  CustomerName,
+  SupplierName,
+  LocalCreatedBy,
+  LocalCreatedAt,
+  LocalLastChangedBy,
+  LocalLastChangedAt,
+  LastChangedAt;
+
+  field ( features : instance )
+  CompanyCode,
+  AgentCode,
+  CustomerCode,
+  PostingDate,
+  AccountingDocument,
+  FiscalYear,
+  ImportoProvvValInt,
+  ImportoProvvValIntCurrency,
+  ImportoProvvValDoc,
+  ImportoProvvValDocCurrency,
+  ImportoImponibile,
+  ImportoImponibileCurrency,
+  ImportoImponibileInt,
+  ImportoImponibileCurInt,
+  ImportoImponibilePercentage,
+  ProvvType,
+  ProvvSymbol,
+  provvstatus,
+  Document,
+  DocumentMaturanda,
+  DocumentMaturata,
+  DocumentFdr,
+  DocumentFatturaAgente;
+
+//  field ( readonly : update )
+//  CompanyCode,
+//  AgentCode,
+//  CustomerCode,
+//  PostingDate,
+//  AccountingDocument,
+//  FiscalYear,
+//  ImportoProvvValInt,
+//  ImportoProvvValIntCurrency,
+//  ImportoProvvValDoc,
+//  ImportoProvvValDocCurrency,
+//  ImportoImponibile,
+//  ImportoImponibileCurrency,
+//  ImportoImponibilePercentage,
+//  ProvvType,
+//  ProvvSymbol,
+//  Document;
+
+
+
+//  field ( mandatory : create )
+//  ProvvType,
+//  AgentCode,
+//  ImportoProvvValInt,
+//  ImportoProvvValIntCurrency,
+//  ImportoProvvValDoc,
+//  ImportoProvvValDocCurrency;
+
+  field ( numbering : managed )
+  ID;
+
+  draft action Activate optimized;
+  draft action Discard;
+  draft action ( features : instance ) Edit;
+  draft action Resume;
+  draft determine action Prepare;
+
+
+  mapping for zfi_provvigioni corresponding extensible
+    {
+      Id                          = id;
+      CompanyCode                 = company_code;
+      AgentCode                   = agent_code;
+      CustomerCode                = customer_code;
+      PostingDate                 = posting_date;
+      AccountingDocument          = accounting_document;
+      FiscalYear                  = fiscal_year;
+      ImportoProvvValInt          = importo_provv_val_int;
+      ImportoProvvValIntCurrency  = importo_provv_val_int_currency;
+      ImportoProvvValDoc          = importo_provv_val_doc;
+      ImportoProvvValDocCurrency  = importo_provv_val_doc_currency;
+      ImportoImponibile           = importo_imponibile;
+      ImportoImponibileCurrency   = importo_imponibile_currency;
+      ImportoImponibileInt        = importo_imponibile_int;
+      ImportoImponibileCurInt     = importo_imponibile_cur_int;
+      ImportoImponibilePercentage = importo_imponibile_percentage;
+      ProvvType                   = provv_type;
+      ProvvSymbol                 = provv_symbol;
+      ProvvStatus                 = provv_status;
+      DocumentMaturanda           = document_maturanda;
+      DocumentMaturata            = document_maturata;
+      DocumentFdr                 = document_fdr;
+      DocumentFatturaAgente       = document_fattura_agente;
+      Document                    = document;
+      LocalCreatedBy              = local_created_by;
+      LocalCreatedAt              = local_created_at;
+      LocalLastChangedBy          = local_last_changed_by;
+      LocalLastChangedAt          = local_last_changed_at;
+      LastChangedAt               = last_changed_at;
+    }
+}

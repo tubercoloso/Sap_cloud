@@ -1,0 +1,5 @@
+@ObjectModel.leadingEntity.name: 'ZI_ZfiContiProv_S'
+define service ZUI_ZFICONTIPROV {
+  expose ZI_ZFICONTIPROV_S as ZfiContiProvAll;
+  expose ZI_ZFICONTIPROV as ZfiContiProv;
+}

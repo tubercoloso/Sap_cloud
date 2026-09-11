@@ -1,0 +1,465 @@
+@Metadata.layer: #CORE
+@UI.headerInfo.title.type: #STANDARD
+@UI.headerInfo.title.value: 'AccountingDocument'
+@UI.headerInfo.description.type: #STANDARD
+@UI.headerInfo.description.value: 'AgentCode'
+@UI.presentationVariant: [{
+    text          : 'Default',
+    sortOrder     : [ { by: 'AgentCode', direction: #ASC } ],
+    groupBy       : [ 'AgentCode' ],
+    visualizations: [ { type: #AS_LINEITEM } ]
+}]
+annotate entity ZC_PROVVIGIONI with
+{
+
+  @UI.facet: [
+
+//    { id : 'Collection',
+//      type: #COLLECTION,
+//      position: 10   },
+
+    { label: 'General Information',
+      id: 'GeneralInfo',
+      purpose: #STANDARD,
+      position: 10 ,
+      type: #IDENTIFICATION_REFERENCE } ]
+//      parentId: 'Collection',
+//      targetQualifier: 'General' },
+
+//    { id    : 'Ref',
+//      purpose: #STANDARD,
+//      type: #FIELDGROUP_REFERENCE,
+//      position: 20,
+//      targetQualifier: 'Ref',
+//      parentId: 'Collection' ,
+//      label   : 'Riferimento'} ,
+//
+//    { label : 'Importi',
+//      id    : 'Imp',
+//      purpose: #STANDARD,
+//      type: #FIELDGROUP_REFERENCE,
+//      position: 20,
+//      targetQualifier: 'Imp' } ,
+//
+//    { label : 'Documenti',
+//      id    : 'Doc',
+//      purpose: #STANDARD,
+//      type: #FIELDGROUP_REFERENCE,
+//      position: 30,
+//      targetQualifier: 'Doc',
+//      parentId: 'Collection' },
+//      
+//     { id    : 'Main',
+//      purpose: #STANDARD,
+//      type: #FIELDGROUP_REFERENCE,
+//      position: 20,
+//      targetQualifier: 'Main',
+//      parentId: 'Collection' ,
+//      label   : ' '} 
+//
+//      ]
+
+
+  @UI: {
+       hidden: true
+  //      lineItem:        [ { position: 10 } ],
+  //      identification:  [ { position: 10 } ],
+  //      selectionField:  [ { position: 10 } ]
+  }
+  Id;
+
+  @UI: {
+      lineItem:        [ { position: 20 } ],
+      identification:  [ { position: 20 } ],
+      selectionField:  [ { position: 20 } ]
+//      fieldGroup:      [{ qualifier: 'Main' ,
+//                          position : 10   }]
+  }
+
+  @Consumption.valueHelpDefinition: [{
+     entity: {
+        name: 'I_CompanyCode',        // The CDS view providing the supplier data
+        element: 'CompanyCode'        // The field in the value help view
+     },
+     additionalBinding: [{
+        element: 'CompanyCodeName',
+        localElement: 'CompanyCodeName',
+        usage: #RESULT
+     }
+     ]
+  }]
+
+  CompanyCode;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 21 } ],
+  //      identification:  [ { position: 21 } ],
+  //      selectionField:  [ { position: 21 } ]
+  //  }
+
+  @EndUserText.label: 'Company Name'
+  @Consumption.filter.hidden: true
+  CompanyCodeName;
+
+  @UI: {
+      lineItem:        [ { position: 30 } ],
+      identification:  [ { position: 30 } ],
+      selectionField:  [ { position: 30 } ]
+//      fieldGroup:      [{ qualifier: 'Main' ,
+//                          position : 20   }]
+  }
+
+  @Consumption.valueHelpDefinition: [{
+   entity: {
+      name: 'I_Supplier',        // The CDS view providing the supplier data
+      element: 'Supplier'        // The field in the value help view
+     },
+     additionalBinding: [{
+        element: 'SupplierName',
+        localElement: 'SupplierName',
+        usage: #RESULT
+     }
+     ]
+  }]
+  @EndUserText.label: 'Agent'
+  AgentCode;
+
+  //  @UI: {
+  //    lineItem:        [ { position: 31 } ],
+  //    identification:  [ { position: 31 } ],
+  //    selectionField:  [ { position: 31 } ]
+  //  }
+  @EndUserText.label: 'Agent Name'
+  @Consumption.filter.hidden: true
+  SupplierName;
+
+  @UI: {
+      lineItem:        [ { position: 40 } ],
+      identification:  [ { position: 40 } ],
+      selectionField:  [ { position: 40 } ]
+//      fieldGroup:      [{ qualifier: 'Main' ,
+//                          position : 30   }]
+  }
+  @Consumption.valueHelpDefinition: [{
+  entity: {
+    name: 'I_Customer',          // The CDS view providing the supplier data
+    element: 'Customer'          // The field in the value help view
+     },
+     additionalBinding: [{
+        element: 'CustomerName',
+        localElement: 'CustomerName',
+        usage: #RESULT
+     }
+     ]
+  }]
+  @EndUserText.label: 'Customer'
+  CustomerCode;
+
+  //  @UI: {
+  //    lineItem:        [ { position: 41 } ],
+  //    identification:  [ { position: 41 } ],
+  //    selectionField:  [ { position: 41 } ]
+  //  }
+  @EndUserText.label: 'Customer Name'
+  @Consumption.filter.hidden: true
+  CustomerName;
+
+  @UI: {
+      lineItem:        [ { position: 75 } ],
+      identification:  [ { position: 75 } ],
+      selectionField:  [ { position: 75 } ]
+//      fieldGroup:      [{ qualifier: 'Ref' ,
+//                          position : 30   }]
+  }
+  PostingDate;
+
+  @Consumption.semanticObject: 'AccountingDocument'
+  @UI: {
+      lineItem:        [ { position: 60 }  ],
+      identification:  [ { position: 60 } ] ,
+      selectionField:  [ { position: 60 } ]
+//      fieldGroup:      [{ qualifier: 'Ref' ,
+//                          position : 10   }]
+  }
+@EndUserText.label: 'Customer Invoice'
+
+  AccountingDocument;
+
+  @UI: {
+      lineItem:        [ { position: 70 } ],
+      identification:  [ { position: 70 } ],
+      selectionField:  [ { position: 70 } ]
+//      fieldGroup:      [{ qualifier: 'Ref' ,
+//                          position : 20   }]
+  }
+  FiscalYear;
+
+  @UI: {
+      lineItem:        [ { position: 80, importance: #HIGH } ],
+           identification:  [ { position: 80 } ],
+      selectionField:  [ { position: 80 } ]
+//      fieldGroup:      [{ qualifier: 'Imp' ,
+//                          position : 10   }]
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Commission amount in local currency'
+  ImportoProvvValInt;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 90 } ],
+  //      identification:  [ { position: 90 } ],
+  //      selectionField:  [ { position: 90 } ]
+  //  }
+
+  @Consumption: {
+    valueHelpDefinition: [ {
+      entity.element: 'Currency',
+      entity.name: 'I_CurrencyStdVH',
+      useForValidation: true
+    } ]
+  }
+
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Currency amount in local currency'
+
+  ImportoProvvValIntCurrency;
+
+  @UI: {
+      lineItem:        [ { position: 100 } ],
+      identification:  [ { position: 100 } ],
+      selectionField:  [ { position: 100 } ]
+//      fieldGroup:      [{ qualifier: 'Imp' ,
+//                          position : 30   }]
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Commission amount currency of the doc.'
+  ImportoProvvValDoc;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 110 } ],
+  //      identification:  [ { position: 110 } ],
+  //      selectionField:  [ { position: 110 } ]
+  //  }
+  @Consumption: {
+        valueHelpDefinition: [ {
+          entity.element: 'Currency',
+          entity.name: 'I_CurrencyStdVH',
+          useForValidation: true
+        } ]
+      }
+
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Currency amount currency of the doc.'
+  ImportoProvvValDocCurrency;
+
+  @UI: {
+      lineItem:        [ { position: 120, importance: #HIGH } ],
+      identification:  [ { position: 120 } ],
+      selectionField:  [ { position: 120 } ]
+//      fieldGroup:      [{ qualifier: 'Imp' ,
+//                          position : 40   }]
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Commissionable amount'
+  ImportoImponibile;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 130 } ],
+  //      identification:  [ { position: 130 } ],
+  //      selectionField:  [ { position: 130 } ]
+  //  }
+  @Consumption: {
+        valueHelpDefinition: [ {
+          entity.element: 'Currency',
+          entity.name: 'I_CurrencyStdVH',
+          useForValidation: true
+        } ]
+      }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Currency amount'
+  ImportoImponibileCurrency;
+
+
+  @UI: {
+    lineItem:        [ { position: 132, importance: #HIGH } ],
+    identification:  [ { position: 132 } ],
+    selectionField:  [ { position: 132 } ]
+//      fieldGroup:      [{ qualifier: 'Imp' ,
+//                          position : 50   }]
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Commissionable amount Internal'
+  ImportoImponibileInt;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 135 } ],
+  //      identification:  [ { position: 135 } ],
+  //      selectionField:  [ { position: 135 } ]
+  //  }
+  @Consumption: {
+        valueHelpDefinition: [ {
+          entity.element: 'Currency',
+          entity.name: 'I_CurrencyStdVH',
+          useForValidation: true
+        } ]
+      }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Currency amount Internal'
+  ImportoImponibileCurInt;
+
+
+  @UI: {
+      lineItem:        [ { position: 140 } ],
+           identification:  [ { position: 140 } ],
+      selectionField:  [ { position: 140 } ]
+//      fieldGroup:      [{ qualifier: 'Imp' ,
+//                          position : 40   }]
+  }
+  @Consumption.filter.hidden: true
+  @EndUserText.label: 'Percentage amount'
+  ImportoImponibilePercentage;
+
+  @UI: {
+      lineItem:        [ { position: 11, cssDefault.width: '3rem' } ],
+      identification:  [ { position: 11 } ],
+      selectionField:  [ { position: 11 } ]
+  }
+  @EndUserText.label: 'Type'
+  @Consumption.valueHelpDefinition: [{
+   entity: {
+      name: 'ZFI_TP_PROVV_VH',        // The CDS view providing the supplier data
+      element: 'IconId'        // The field in the value help view
+     }
+  }]
+  ProvvType;
+
+  @UI: {
+      lineItem:        [ { position: 9 } ],
+      identification:  [ { position: 9 } ],
+      selectionField:  [ { position: 9 } ]
+//      fieldGroup:      [{ qualifier: 'General' ,
+//                          position : 10   }]
+  }
+  @EndUserText.label: 'Symbol'
+  ProvvSymbol;
+
+  @UI: {
+      lineItem:        [ { position: 170 } ],
+      identification:  [ { position: 170 } ],
+      selectionField:  [ { position: 170 } ]
+//      fieldGroup:      [{ qualifier: 'General' ,
+//                          position : 20   }]
+  }
+  @EndUserText.label: 'Status'
+  @Consumption.valueHelpDefinition: [{
+   entity: {
+      name: 'ZFI_STATO_MC',
+      element: 'Code'
+     }
+  }]
+  ProvvStatus;
+
+  //@Consumption.semanticObject: 'AccountingDocument'
+  //@Consumption.semanticObjectMapping.additionalBinding: [{localElement: 'NumDocMaturanda', element: 'AccountingDocument' }]
+
+
+  @UI: {
+      lineItem:        [ { position: 180 } ],
+           identification:  [ { position: 180 } ],
+      selectionField:  [ { position: 180 } ] 
+//      fieldGroup:      [{ qualifier: 'Doc' ,
+//                          position : 10   }]
+  }
+  @EndUserText.label: 'Document Maturing'
+  DocumentMaturanda;
+
+
+
+  //  @UI: {
+  //      lineItem:        [ { position: 190 } ],
+  //      identification:  [ { position: 190 } ],
+  //      selectionField:  [ { position: 190 } ]
+  //  }
+  //  @EndUserText.label: 'Document Matured'
+  @UI.hidden: true
+  DocumentMaturata;
+
+  //@Consumption.semanticObject: 'AccountingDocument'
+  @UI: {
+      lineItem:        [ { position: 200 } ],
+           identification:  [ { position: 200 } ],
+      selectionField:  [ { position: 200 } ]
+//      fieldGroup:      [{ qualifier: 'Doc' ,
+//                          position : 20   }]
+  }
+  @EndUserText.label: 'Document FDR'
+  DocumentFdr;
+
+  //@Consumption.semanticObject: 'AccountingDocument'
+  @UI: {
+      lineItem:        [ { position: 210 } ],
+      identification:  [ { position: 210 } ],
+      selectionField:  [ { position: 210 } ]
+//      fieldGroup:      [{ qualifier: 'Doc' ,
+//                          position : 30   }]
+  }
+  @EndUserText.label: 'Document Agent Invoice'
+  DocumentFatturaAgente;
+
+  //  @UI: {
+  //      lineItem:        [ { position: 220 } ],
+//        identification:  [ { position: 220 } ],
+  //      selectionField:  [ { position: 220 } ]
+  //  }
+  //  @EndUserText.label: 'Document Invoice'
+  @UI.hidden: true
+  Document;
+
+  //  @UI: {
+  //  //        lineItem:        [ { position: 230 } ],
+  //      identification:  [ { position: 230 } ]
+  //  //    selectionField:  [ { position: 230 } ]
+  //  }
+  // @Consumption.filter.hidden: true
+  @UI.hidden: true
+  LocalCreatedBy;
+
+  @UI: {
+  //        lineItem:        [ { position: 240 } ],
+      identification:  [ { position: 240 } ]
+//      fieldGroup:      [{ qualifier: 'General' ,
+//                          position : 30   }]
+       }
+  //      selectionField:  [ { position: 240 } ]
+  //  }
+  // // @Consumption.filter.hidden: true
+  //@UI.hidden: true
+  LocalCreatedAt;
+
+  //  @UI: {
+  //  //        lineItem:        [ { position: 250 } ],
+  //      identification:  [ { position: 250 } ]
+  //  //    selectionField:  [ { position: 250 } ]
+  //  }
+  // // @Consumption.filter.hidden: true
+  @UI.hidden: true
+  LocalLastChangedBy;
+
+  //  @UI: {
+  //  //        lineItem:        [ { position: 260 } ],
+  //      identification:  [ { position: 260 } ]
+  //  //    selectionField:  [ { position: 260 } ]
+  //  }
+  @Consumption.filter.hidden: true
+  @UI.hidden: true
+  LocalLastChangedAt;
+
+  //  @UI: {
+  //  //        lineItem:        [ { position: 270 } ],
+  //      identification:  [ { position: 270 } ]
+  //     // selectionField:  [ { position: 270 } ]
+  //  }
+  @UI.hidden: true
+  @Consumption.filter.hidden: true
+  LastChangedAt;
+}

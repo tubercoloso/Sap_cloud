@@ -1,0 +1,41 @@
+{
+  "formatVersion": "1",
+  "header": {
+    "description": "Maintain ZFI_CONTI_PROV",
+    "originalLanguage": "en",
+    "abapLanguageVersion": "cloudDevelopment"
+  },
+  "serviceConfiguration": {
+    "serviceBinding": "ZUI_ZFICONTIPROV_O4",
+    "serviceName": "ZUI_ZFICONTIPROV_O4",
+    "serviceVersion": "0001",
+    "rootEntitySet": "ZfiContiProvAll",
+    "name": "ZFI_CONTI_PROV",
+    "transportObject": "ZZFICONTIPROVT",
+    "configurationGroup": "",
+    "skipRootEntity": "skip"
+  },
+  "appConfiguration": {
+    "listReport": {},
+    "objectPages": [
+      {
+        "entitySet": "ZfiContiProvAll",
+        "variantManagement": "control",
+        "showTransportSelectionStrip": true
+      }
+    ],
+    "tableSettings": [
+      {
+        "entitySet": "ZfiContiProv",
+        "tableType": "gridTable",
+        "selectionMode": "single",
+        "selectAll": true,
+        "rowCountMode": "auto",
+        "frozenColumnCount": 2,
+        "creationModeName": "inlineCreationRows",
+        "createAtEnd": true,
+        "widthIncludingColumnHeader": true
+      }
+    ]
+  }
+}

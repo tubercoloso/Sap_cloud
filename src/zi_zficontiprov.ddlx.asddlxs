@@ -1,0 +1,60 @@
+@Metadata.layer: #CUSTOMER
+@UI: {
+  headerInfo: {
+    typeName: 'ZfiContiProv',
+    typeNamePlural: 'ZfiContiProvs',
+    title: {
+      type: #STANDARD,
+      label: 'ZFI_CONTI_PROV',
+      value: 'Bukrs'
+    }
+  }
+}
+annotate view ZI_ZfiContiProv with
+{
+  @UI.identification: [ {
+    position: 1
+  } ]
+  @UI.lineItem: [ {
+    position: 1
+  },
+  {
+    type: #FOR_ACTION,
+    dataAction: 'Copy',
+    label: 'Copy Selected Entry',
+    invocationGrouping: #CHANGE_SET
+  } ]
+  @UI.facet: [ {
+    id: 'ZI_ZfiContiProv',
+    purpose: #STANDARD,
+    type: #IDENTIFICATION_REFERENCE,
+    label: 'ZFI_CONTI_PROV',
+    position: 1
+  } ]
+  @Consumption.valueHelpDefinition: [ {
+    entity: {
+      name: 'I_CompanyCodeVH',
+      element: 'CompanyCode'
+    }
+  } ]
+  Bukrs;
+
+  @UI.identification: [ {
+    position: 2
+  } ]
+  @UI.lineItem: [ {
+    position: 2
+  } ]
+  @Consumption.valueHelpDefinition: [ { 
+    entity: { 
+      name: 'I_GlAccountStdVH', 
+      element: 'GLAccount' 
+    },
+    additionalBinding: [ {
+      localElement: 'Bukrs',
+      element: 'CompanyCode',
+      usage: #FILTER
+    } ] 
+  } ]
+  Hkont;
+}

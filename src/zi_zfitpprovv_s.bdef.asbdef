@@ -1,0 +1,88 @@
+managed with additional save implementation in class ZBP_I_ZFITPPROVV_S unique;
+strict;
+with draft;
+define behavior for ZI_ZfiTpProvv_S alias ZfiTpProvvAll
+draft table ZFI_TP_PROV_D_S
+with unmanaged save
+lock master total etag LastChangedAtMax
+authorization master( global )
+{
+  field ( readonly )
+   SingletonID;
+
+  field ( features : instance )
+   TransportRequestID;
+
+  field ( notrigger )
+   SingletonID,
+   LastChangedAtMax;
+
+
+  update;
+  internal create;
+  internal delete;
+
+  draft action ( features : instance ) Edit with additional implementation;
+  draft action Activate optimized;
+  draft action Discard;
+  draft action Resume;
+  draft determine action Prepare;
+  action ( features : instance ) SelectCustomizingTransptReq parameter D_SelectCustomizingTransptReqP result [1] $self;
+
+  association _ZfiTpProvv { create ( features : instance ); with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT
+  {
+    create;
+    update;
+  }
+
+  side effects
+  {
+    action SelectCustomizingTransptReq affects
+        $self;
+  }
+
+}
+
+define behavior for ZI_ZfiTpProvv alias ZfiTpProvv ##UNMAPPED_FIELD
+persistent table ZFI_TP_PROVV
+draft table ZFI_TP_PROVV_D
+lock dependent by _ZfiTpProvvAll
+authorization dependent by _ZfiTpProvvAll
+{
+  field ( mandatory : create )
+   IconId;
+
+  field ( readonly )
+   SingletonID;
+
+  field ( readonly : update )
+   IconId;
+
+  field ( notrigger )
+   SingletonID;
+
+
+  update( features : global );
+  delete( features : global );
+
+  factory action ( features : instance ) Copy parameter ZD_CopyZfiTpProvvP [1];
+
+  mapping for ZFI_TP_PROVV
+  {
+    IconId = ICON_ID;
+    IconUri = ICON_URI;
+    Description = DESCRIPTION;
+  }
+
+  association _ZfiTpProvvAll { with draft; }
+
+  validation ValidateTransportRequest on save ##NOT_ASSIGNED_TO_DETACT
+  {
+    create;
+    update;
+    delete;
+  }
+
+}
